@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photo gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="radio" name="photos" id="check1" checked>
+    <input type="radio" name="photos" id="check2" >
+    <input type="radio" name="photos" id="check3" >
+    <input type="radio" name="photos" id="check4">
+    <div class="container">
+        <h1>Photo Gallery</h1>
+        <div class="top-content">
+            <h3>Pictures</h3>
+            <label for="check1"> All Photos</label>
+            <label for="check2"> Anime</label>
+            <label for="check3"> Characters</label>
+            <label for="check4"> Food</label>
+        </div>
+
+        <div class="photo" style="width: 80%; margin: auto;">
+           <div class="pic anime">
+            <img src="images/anime1.jpg" alt="" class="gallery-img">
+            <img src="images/anime2.jpg" alt="" class="gallery-img">
+            <img src="images/anime3.jpg" alt="" class="gallery-img">
+            <img src="images/anime4.jpg" alt="" class="gallery-img">
+            <img src="images/anime5.jpg" alt="" class="gallery-img">
+            <img src="images/anime6.jpg" alt="" class="gallery-img">
+
+            <div class="pic char" style="width: 100%;"><img src="images/c7.jpg" alt=""class="gallery-img"></div>
+           </div>
+           <div class="pic char">
+            <img src="images/c1.jpg" alt="" class="gallery-img">
+            <img src="images/c5.jpg" alt="" class="gallery-img">
+            <img src="images/c2.jpg" alt="" class="gallery-img">
+            <img src="images/c3.jpg" alt="" class="gallery-img">
+            <img src="images/c4.jpg" alt="" class="gallery-img">
+            <img src="images/c6.jpg" alt="" class="gallery-img">
+            
+           </div>
+           <div class="pic food">
+            <img src="images/food1.jpg" alt="" class="gallery-img">
+            <img src="images/food2.jpg" alt="" class="gallery-img">
+            <img src="images/food3.jpg" alt="" class="gallery-img">
+            <img src="images/food4.jpg" alt="" class="gallery-img">
+            <img src="images/food5.jpg" alt="" class="gallery-img">
+            <div class="pic char" id="check3" style="width: 100%;">
+                <img src="images/c8.jpg" alt="" class="gallery-img">
+                <img src="images/c9.jpg" alt="" class="gallery-img">
+            </div>
+           </div>
+            
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("modal");
+    var modalImg = document.getElementById("modal-img");
+    var close = document.getElementsByClassName("close")[0];
+
+    document.querySelectorAll('.gallery-img').forEach(function(img) {
+        img.addEventListener('click', function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+    });
+
+    close.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+});
+
+    </script>
+    
+</body>
+</html>

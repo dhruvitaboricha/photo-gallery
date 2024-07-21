@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    display: none;
+}
+.container{
+    text-align: center;
+    width: 100%;
+}
+.container h1{
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    font-size: 35px;
+}
+.container h1::before{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: crimson;
+    left: 50%;
+    bottom: -6px;
+    transform: translatex(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    display: flex;
+    border-radius: 10px;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: lightgrey;
+    width: 92%;
+    margin: 50px 5%;
+    box-shadow: 0px 1px 6px gray;
+
+    
+}
+.top-content h3{
+    border-start-end-radius: 100px;
+    color: white;
+    background-color: gray;
+    height: 90px;
+    line-height: 88px;
+    padding: 0 5%;
+    font-size: 25px;
+}
+.top-content label{
+    margin: 0 2%;
+    color: gray;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.top-content label:hover{
+    color: black;
+    transform: scale(1.1);
+}
+
+
+
+.container .photo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+.container .photo .pic{
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+    
+}
+.container .photo .pic img{
+    padding:5px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+
+
+
+
+#check1:checked ~ .container .photo .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s ease;
+}
+#check2:checked ~ .container .photo .anime{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;  
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(275px,1fr));  
+    transition: .5s ease;
+    width: 100%;
+
+}
+#check2:checked ~ .container .photo .char,
+#check2:checked ~ .container .photo .food{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+#check3:checked ~ .container .photo .char{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;  
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(275px,1fr));  
+    width: 100%;
+    transition: .5s ease;
+  
+
+}
+#check3:checked ~ .container .photo .anime,
+#check3:checked ~ .container .photo .food{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+
+#check4:checked ~ .container .photo .food{
+    opacity: 1;
+    transform: scale(1);
+    position: relative; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(275px,1fr));  
+    width: 100%;
+    transition: .5s ease;
+
+}
+#check4:checked ~ .container .photo .anime,
+#check4:checked ~ .container .photo .char{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+
+
+
+
+/* ---------------------------------responsive--------------------- */
+@media(max-width:600px){
+    .container h1{
+        font-size: 32px;
+    }
+    .top-content{
+        height: 60px;
+        gap: 10px;
+    }
+    .top-content h3{
+        font-size: 18px;
+        height: 60px;
+        line-height: 68px;
+    }
+    .top-content label{
+        font-size: 12px;
+        margin: 0 0;
+    }
+    .container .photo .pic{
+        width: 100%;
+        
+    }
+    .container .photo .pic img{
+        width: 75%;
+        margin: auto;
+    }
+   
+   
+}   
+
+/* ---------------------------------modal------------------------------- */
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
